@@ -1,0 +1,140 @@
+<p *ngIf="isLoading" class="text-center text-lg mt-[150px] ">Loading...</p>
+<div *ngIf="!isLoading" class="body flex  flex-col pt-[30px] min-w-[100vw] items-center">
+    <ul
+
+      class="flex flex-col flex-grow mx-[5%] mb-[50px]"
+    >
+      <li
+        *ngFor="let job of jobs | paginate:
+        {
+          itemsPerPage: isDesktop ? 7 : jobs.length,
+          currentPage: page,
+          totalItems: totalLength
+        };
+        index as i"
+        (click)="onSelect(job.id)"
+        class="min-w-[80vw] max-w-[1400px] lg:h-[164px] h-[200px] px-[16px] py-[24px] mb-[8px]
+        bg-white rounded transition duration-950 flex flex-rown justify-between job-tablet"
+      >
+
+        <div class="flex w-[100%] h-[100%] md:w-[70%] flex-row ">
+          <div class="rounded-full mr-[26px] relative overflow-hidden job-item__avatar">
+            <img [src]="job.pictures[0]" alt="">
+          </div>
+          <div class="flex flex-col justify-between">
+            <h2 class="mb-[8px] job-item__title">{{job.title}}</h2>
+            <p class="job-item__name">{{job.name}}</p>
+            <div class="flex">
+              <svg
+                class="relative bottom-[-2px] lg:bottom-[5px] mr-[5px] lg:mr-[8px] w-[16px] h-[16px] lg:w-[25px] lg:h-[23px]" fill="#9e9e9e" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+                y="0px"  viewBox="0 0 466.583 466.582"
+                style="enable-background:new 0 0 466.583 466.582;" xml:space="preserve">
+                <g>
+                  <path d="M233.292,0c-85.1,0-154.334,69.234-154.334,154.333c0,34.275,21.887,90.155,66.908,170.834
+              		c31.846,57.063,63.168,104.643,64.484,106.64l22.942,34.775l22.941-34.774c1.317-1.998,32.641-49.577,64.483-106.64
+              		c45.023-80.68,66.908-136.559,66.908-170.834C387.625,69.234,318.391,0,233.292,0z M233.292,233.291c-44.182,0-80-35.817-80-80
+              		s35.818-80,80-80c44.182,0,80,35.817,80,80S277.473,233.291,233.292,233.291z" />
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+              </svg>
+              <p class="job-item__location">{{job.address}}</p>
+            </div>
+
+          </div>
+
+        </div>
+<!---------------STARS------------------------------------------>
+        <div class="job-item__stars self-center flex flex-row ">
+          <div *ngFor="let star of ratingFunc(1, 5); index as i">
+            <svg  version="1.1" id="Layer_1" class="h-[10px] md:h-[19px] w-[10px] md:w-[18px]" xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink" fill="#384564" viewBox="0 0 512.001 512.001"
+              style="enable-background:new 0 0 512.001 512.001;" xml:space="preserve">
+              <g>
+                <g>
+                  <path d="M511.192,197.129c-1.964-6.045-7.223-10.426-13.524-11.266l-157.944-21.052l-68.83-143.709
+                    			c-2.746-5.733-8.537-9.381-14.894-9.381c-6.357,0-12.148,3.648-14.894,9.381l-68.83,143.708L14.333,185.862
+                    			c-6.301,0.84-11.56,5.222-13.524,11.266s-0.285,12.682,4.319,17.064l115.405,109.869L91.748,480.781
+                    			c-1.148,6.252,1.393,12.608,6.536,16.344c5.141,3.736,11.97,4.189,17.563,1.165l140.155-75.806l140.155,75.806
+                    			c5.588,3.023,12.418,2.572,17.563-1.165c5.143-3.736,7.683-10.092,6.536-16.344L391.47,324.062l115.405-109.869
+                    			C511.477,209.811,513.156,203.175,511.192,197.129z" />
+                </g>
+              </g>
+              <g>
+              </g>
+              <g>
+              </g>
+              <g>
+              </g>
+              <g>
+              </g>
+              <g>
+              </g>
+              <g>
+              </g>
+              <g>
+              </g>
+              <g>
+              </g>
+              <g>
+              </g>
+              <g>
+              </g>
+              <g>
+              </g>
+              <g>
+              </g>
+              <g>
+              </g>
+              <g>
+              </g>
+              <g>
+              </g>
+            </svg>
+          </div>
+        </div>
+<!---------------STARS------------------------------------------>
+        <div class="flex flex-col justify-between job-item__posted-date">
+          <svg width="18" height="30" viewBox="0 0 18 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M1 4.00016C1 2.5274 2.19391 1.3335 3.66667 1.3335H14.3333C15.8061 1.3335 17 2.5274 17 4.00016V19.9936C17 21.1595 15.609 21.7639 14.7567 20.9682L9.90994 16.4428C9.39761 15.9645 8.60239 15.9645 8.09007 16.4428L3.24327 20.9682C2.39104 21.7639 1 21.1595 1 19.9936V4.00016Z"
+              stroke="#70778B" stroke-width="2" />
+          </svg>
+          <span class="job-item__posted" >{{ howLongService.getTime(job.createdAt, job.updatedAt) }}</span>
+        </div>
+
+      </li>
+    </ul>
+    <pagination-controls *ngIf="isDesktop" class="mb-[40px] pagination" (pageChange)="page = $event"></pagination-controls>
+
+
+
+</div>

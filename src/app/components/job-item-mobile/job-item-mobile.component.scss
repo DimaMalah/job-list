@@ -1,0 +1,270 @@
+*{
+  font-family: 'Montserrat';
+}
+
+.main-container{
+  position: relative;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 24px ;
+  margin: 0 auto;
+}
+
+.job-item{
+
+  &__header{
+    color: #3A4562;
+    margin: 24px 15px 12px;
+  }
+  &__title{
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 34px;
+    letter-spacing: 0.413333px;
+  }
+  &__links{
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 23px;
+    letter-spacing: -0.5625px;
+    color: #3A4562;
+    font-stretch: 100;
+    &_save{
+      margin-right: 31px;
+      &:hover{
+        scale: 1.05;
+      }
+      &::before{
+        content: url('../../../assets/img/Icons/save-star.png');
+        margin-right: 16px;
+        width: 16px;
+        height: 20px;
+        position: relative;
+        top: 3px;
+      }
+    }
+    &_share{
+      &:hover{
+        scale: 1.05;
+      }
+      &::before{
+        content: url('../../../assets/img/Icons/share.png');
+        margin-right: 16px;
+        width: 18px;
+        height: 20px;
+        position: relative;
+        top: 3px;
+      }
+    }
+  }
+}
+
+
+.btn-apply{
+  width: 130px;
+  height: 55px;
+  color: #FFFFFF;
+  background-color: #384564;
+  margin-top: 40px;
+  border-radius: 8px;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  text-align: center;
+  transition: 100ms;
+  &:hover{
+    background-color: #252e42;
+    color: #b1caff;
+  }
+  &:active{
+    background-color: #4d5f8a;
+  }
+}
+
+.job{
+  &__title{
+    margin-top: 32px;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 30px;
+    letter-spacing: -0.75px;
+    color: #3A4562;
+  }
+  &__salary{
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 25px;
+    letter-spacing: -0.625px;
+    color: #3A4562;
+    &-desc{
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 24px;
+      letter-spacing: -0.5625px;
+      color: #3A4562;
+      font-stretch: 100;
+    }
+  }
+  &__description{
+    margin-top: 12px;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: -0.5625px;
+    color: #3A4562;
+    font-stretch: 100;
+  }
+  &__subtitle{
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 25px;
+    letter-spacing: -0.625px;
+    color: #3A4562;
+    margin-top: 40px;
+  }
+  &__benefit-item::before{
+    content: url('../../../assets/img/Icons/li-square.png');
+    margin-right: 10px;
+    position: relative;
+    bottom: 2px;
+  }
+}
+
+.when-updated{
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: -0.5625px;
+  color: rgba(56, 65, 93, 0.6);
+  font-stretch: 100;
+  position: relative;
+  bottom: 5px;
+}
+
+.subsection-title{
+  margin: 86px 0 12px
+}
+
+.btn{
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 16px;
+  text-align: center;
+  letter-spacing: -0.457143px;
+  max-width: 225px;
+  height: 50px;
+  margin-right: 8px;
+  padding: 0 25px;
+  cursor: auto;
+  &-blue{
+    color: #55699E;
+    border: 1px solid rgba(85, 105, 158, 0.3);
+    background-color: rgba(161, 177, 219, 0.317343);
+  }
+  &-yellow{
+    background: rgba(255, 207, 0, 0.15);
+    border: 1px solid #FFCF00;
+    color: #988B49;
+  }
+
+
+
+}
+
+.imageBox{
+  position: relative;
+  overflow: hidden;
+  width: 200px;
+  height: 135px;
+  border-radius: 8px;
+  transition: 200ms;
+  cursor: pointer;
+  &:hover{
+    scale: 1.05;
+    }
+  &:active{
+    scale: 1.00;
+  }
+  & img{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200px;
+    height: 135px;
+    object-fit: cover;
+    transition: 200ms;
+    &:hover{
+      scale: 1.05;
+    }
+    &:active{
+    scale: 1.00;
+    }
+  }
+}
+
+
+.modal-picture{
+  position: fixed;
+  left: 50%;
+}
+
+
+@media (max-width: 758px){
+  .main-container{
+    max-width: 500px;
+
+    flex-direction: column;
+    align-items: center;
+  }
+  .map-block{
+    flex-direction: column-reverse;
+  }
+
+  .job{
+    &__title{
+      font-size: 16px;
+      line-height: 20px;
+    }
+    &__salary{
+      font-size: 12px;
+      line-height: 16px;
+      &-desc{
+        font-weight: 400;
+        font-size: 10px;
+        line-height: 12px;
+    }
+  }
+  }
+
+  .modal-picture{
+    position: fixed;
+}
+
+  .box-imagebox{
+
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    height: 150px ;
+    width: 300px;
+
+
+  }
+  .imageBox{
+    display: inline-block;
+}
+
+
+
+}
+
+@media (max-width: 1000px){
+  .btn-back{
+    right: -50vw;
+    transform: translate(-170%, 0);
+  }
+}

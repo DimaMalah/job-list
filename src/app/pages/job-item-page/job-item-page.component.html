@@ -1,0 +1,104 @@
+<div #document  class="main-container min-w-[100vw] min-h-[100vh] flex flex-row justify-center mb-[150px]">
+
+  <div *ngIf="!isMobile; else elseBlock" class=" w-[725px] min-h-[100%] mr-[5%] flex flex-col">
+
+
+    <div class="flex flex-row justify-between job-item__header">
+      <h2 class="job-item__title">Job Details</h2>
+      <div class="flex flex-row justify-between job-item__links">
+        <a (click)="onSaveClick(job.id)" class="job-item__links_save">Save to my list</a>
+        <a (click)="onShareClick(job.id)" class="job-item__links_share">Share</a>
+      </div>
+    </div>
+
+    <hr>
+
+    <button (click)="onApplyClick(job.id)"  class="btn-apply">APPLY NOW</button>
+
+    <div class="mt-[35px] flex flex-row justify-between">
+      <div class=" w-[70%]">
+        <h2 class=" job__title">{{job.title}}</h2>
+      </div>
+      <div class="w-[25%] flex flex-col items-end">
+        <span class="job__salary self-start">{{"€ "+ correctPrice.price(job.salary)}}</span>
+        <span class="job__salary-desc self-start">Brutto, per year</span>
+      </div>
+    </div>
+
+    <span class="mt-[10px] when-updated">{{howLong.getTime(job.createdAt, job.updatedAt)}}</span>
+
+    <p class="job__description">{{job.description}}</p>
+
+    <h3 class="job__subtitle">Responsibilities</h3>
+<!-- added this <p> to fill this page with "responsibilities", but there is no such key in API obj -->
+    <p class="job__description">{{job.description.split('').splice(0, 200).join('')}}</p>
+    <p class="job__description">{{job.description.split('').splice(301, 215).join('')}}</p>
+    <p class="job__description">{{job.description.split('').splice(200, 195).join('')}}</p>
+<!-- -------------------------------------------------------------------------------------------- -->
+    <h3 class="job__subtitle">Compensation & Benefits:</h3>
+
+    <div class="relative right-[20px]">
+      <ul class="job__description">
+        <li class="job__benefit-item" *ngFor="let benefit of job.benefits ">{{benefit}}</li>
+      </ul>
+    </div>
+
+    <button (click)="onApplyClick(job.id)" class="btn-apply">APPLY NOW</button>
+
+    <h2 class="job-item__title subsection-title">Additional Info</h2>
+
+    <hr>
+
+    <h4 class="job__description">Employment type</h4>
+
+    <div class="flex flex-row mt-[10px] mb-[23px]">
+      <button class="btn btn-blue" *ngFor="let type of job.employment_type">{{type}}</button>
+    </div>
+
+    <h4 class="job__description">Benefits</h4>
+
+    <div class="flex flex-row mt-[10px]">
+      <button class="btn btn-yellow" *ngFor="let benefit of job.benefits">{{benefit}}</button>
+    </div>
+
+    <h2 class="job-item__title subsection-title">Attached Images</h2>
+
+    <hr>
+
+    <div class="flex flex-row mt-[20px] justify-around">
+      <div (click)="onPictureClick($event)" *ngFor="let picture of job.pictures" class="imageBox">
+        <img  [src]="picture" alt="picture">
+      </div>
+
+    </div>
+
+    <button routerLink="../" class="btn btn-back mt-[90px]">return to job board</button>
+
+  </div>
+
+  <div class="map-block w-[400px] h-[435px] mt-[55px] flex flex-col">
+
+    <div class="under-map-block flex flex-col px-[60px] justify-center">
+      <span class="under-map-block__title">{{job.name}}</span>
+      <span class="under-map-block__address pt-[15px]">{{job.address}}</span>
+      <span class="pt-[15px]">{{job.phone + ','}}</span>
+      <span >{{job.email}}</span>
+    </div>
+
+    <div class="map" #mapElement>
+      <app-map
+        data-lat = {{job.location.lat}}
+        data-lng = {{job.location.long}}
+      ></app-map>
+    </div>
+
+  </div>
+
+
+  <app-modal-picture class="modal-picture" *ngIf="modalService.isVisible$ | async" [pictureLink]="link"></app-modal-picture>
+</div>
+
+<ng-template #elseBlock >
+  <app-job-item-mobile>
+  </app-job-item-mobile>
+</ng-template>

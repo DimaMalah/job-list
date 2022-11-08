@@ -1,0 +1,19 @@
+.back-btn{
+  width: 100px;
+  background: #e3e4e9;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 16px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #3A4562;
+  position: relative;
+  cursor: pointer;
+  padding: 10px 0;
+  transition: 200ms;
+  border-radius: 8px;
+
+  &:hover {
+    background-color: #ebe9e9;
+  }
+}

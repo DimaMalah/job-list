@@ -1,0 +1,146 @@
+.body{
+  background-color:rgba(230, 233, 242, 1);
+}
+
+.job-tablet{
+  font-family: 'Montserrat';
+  box-shadow: 2px 1px 7px rgba(0, 0, 0, 0.08), 0px 2px 1px -1px rgba(0, 0, 0, 0.04), 0px 1px 3px rgba(0, 0, 0, 0.12);
+  transition: 200ms;
+  &:hover{
+    box-shadow: -5px 4px 29px -12px rgba(34, 60, 80, 0.42);
+    transform: scaleX(1.005);
+    transition: 100ms;
+  }
+  &:active{
+    box-shadow: none;
+    transform: scaleX(1);
+  }
+}
+
+
+
+
+.job-item__{
+  &title{
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 25px;
+    letter-spacing: -0.625px;
+    color: #5e6988;
+  }
+
+  &name,&location,&posted{
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 25px;
+    letter-spacing: 0.23619px;
+    color: #878D9D;
+  }
+  &posted-date svg{
+    align-self: flex-end;
+    margin: 4px;
+    transition: 200ms;
+  }
+  &posted-date svg:hover{
+    scale: 1.1;
+    transition: 200ms;
+  }
+  &avatar{
+    min-width: 85px;
+    height: 85px;
+    & img{
+      width: 85px;
+      height: 85px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      object-fit: cover;
+    }
+  }
+}
+
+
+.pagination ::ng-deep .ngx-pagination {
+  border-radius: 10px;
+  background: white !important;
+  font-weight: 700;
+  font-size: 20.8px;
+  line-height: 25px;
+  letter-spacing: 1.73333px;
+  text-align: center;
+
+  & li{
+    padding: 10px 0;
+    margin: 0 3px;
+    width: 31px;
+  }
+  & .current {
+    margin: 0 4px;
+    width: 31px;
+    color: #5876C5;
+    border-bottom: 2.6px solid #5876C5;
+    background-color: transparent;
+  }
+  & a{
+    color: #70778B;
+
+  }
+  & .pagination-next, .pagination-previous {
+    display: none;
+  }
+
+}
+
+.svg{
+  color: #9e9e9e;
+}
+
+
+@media (max-width: 950px) {
+
+  .job-item{
+    &__avatar {
+      display: block;
+      min-width: 66px;
+      height: 66px;
+      background-color: rgb(201, 124, 124);
+      margin-right: 16px;
+      & img {
+        width: 66px;
+        height: 66px;
+      }
+    }
+    &__title{
+      font-weight: 500;
+      font-size: 16px;
+      line-height:20px;
+    }
+    &__name, &__location{
+      font-weight: 400;
+      font-size: 13px;
+      line-height: 20px;
+      letter-spacing: 0.23619px;
+      justify-self: flex-end;
+    }
+
+    &__posted{
+      font-size: 12px;
+      align-self: end;
+    }
+    &__posted-date svg{
+      display: none;
+    }
+    &__stars{
+      align-self: flex-start;
+      position: relative;
+      left: 82px;
+      bottom: 17px;
+    }
+  }
+
+  .job-tablet{
+    flex-direction: column-reverse;
+    padding: 13px 16px 27px;
+  }
+}
