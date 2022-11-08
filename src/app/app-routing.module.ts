@@ -5,9 +5,9 @@ import { JobItemPageComponent } from './pages/job-item-page/job-item-page.compon
 import { ErrorPageComponent } from './pages/error-page/error-page.component';
 
 const routes: Routes = [
-  {path: '', redirectTo: 'job-list', pathMatch: 'full'},
-  {path:'job-list', component: JobListPageComponent, title: 'Job List'},
-  {path:'job-list/:id', component: JobItemPageComponent, title: 'Job'},
+  {path: '', redirectTo: 'PET_Job_list_ANGULAR/job-list', pathMatch: 'full'},
+  {path:'PET_Job_list_ANGULAR/job-list', component: JobListPageComponent, title: 'Job List'},
+  {path:'PET_Job_list_ANGULAR/job-list/:id', component: JobItemPageComponent, title: 'Job'},
   {path:'**', component: ErrorPageComponent, title: '404 Not Found'},
 ];
 
