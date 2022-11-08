@@ -34,17 +34,17 @@ export class JobItemPageComponent implements OnInit {
 
   onApplyClick = (id:string) => {
     this.jobItemService.onApplyClicked(id) //---- for doing some apply logic ------
-    this.router.navigate(['PET_Job_list_ANGULAR/job-list/', id, 'apply'])
+    this.router.navigate(['job-list/', id, 'apply'])
   }
 
   onSaveClick = (id:string) => {
     this.jobItemService.onSaveClicked(id) //----- for doing some save logic -------
-    this.router.navigate(['PET_Job_list_ANGULAR/job-list/', id, 'save'])
+    this.router.navigate(['job-list/', id, 'save'])
   }
 
   onShareClick = (id:string) => {
     this.jobItemService.onShareClicked(id) //------ for doing some share logic -------
-    this.router.navigate(['PET_Job_list_ANGULAR/job-list/', id, 'share'])
+    this.router.navigate(['job-list/', id, 'share'])
   }
 
   constructor(private route: ActivatedRoute,

@@ -60,7 +60,7 @@ export class JobListPageComponent implements OnInit {
   }
 
   onSelect = (id: string) => {
-    this.router.navigate(['PET_Job_list_ANGULAR/job-list/', id])
+    this.router.navigate(['job-list/', id])
   }
 
 }
